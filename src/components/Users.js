@@ -42,7 +42,7 @@ export default function Users() {
   useEffect(() => {
     getUsers()
   }, [])
-  
+  //Getting user info from our api then store it into our state 
   const getUsers = () => {
     fetch("https://www.mecallapi.com/api/users")
       .then(res => res.json())
@@ -56,7 +56,7 @@ export default function Users() {
   const UpdateUser = id => {
     window.location = '/update/'+id
   }
-
+//Deleting User
   const UserDelete = id => {
     var data = {
       'id': id
@@ -110,6 +110,7 @@ export default function Users() {
                 <TableCell align="center">Action</TableCell>
               </TableRow>
             </TableHead>
+            {/* Mapping Users into a table */}
             <TableBody>
               {users.map((user) => (
                 <TableRow key={user.ID}>
